@@ -228,7 +228,7 @@ jobs:
 
       - add_ssh_keys:
           fingerprints:
-            - "30:a4:04:2a:24:5d:53:a3:54:b0:d6:a1:9e:97:bf:9a"
+            - "f9:58:2a:0b:6f:41:52:b6:05:de:3c:de:bd:a7:bd:b3"
 
       - run:
           name: Create Tag and Release on gh and then publish to ansible-galaxy
