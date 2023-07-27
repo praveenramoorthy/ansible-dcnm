@@ -1,4 +1,4 @@
-version: "3.30.50"
+version: "8.30.50"
 release_title: "NDFC collection Version 8.30.50"
 release_desc: "Ansible NDFC Collection"
 changes: 
