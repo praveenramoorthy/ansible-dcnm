@@ -249,7 +249,7 @@ jobs:
             git pull
             git tag -a $COLLECTION_VERSION -m "Ansible NDFC Collection Version $COLLECTION_VERSION"
             git push origin --tags
-            gh release create "NDFC Collection Version $COLLECTION_VERSION" -F /tmp/taginfo.txt
+            gh release create "$COLLECTION_VERSION" -F /tmp/taginfo.txt --title "NDFC Collection Version $COLLECTION_VERSION" --latest
             ansible-galaxy collection build
             mkdir ./tmp/
             ansible-galaxy collection install cisco-dcnm-$COLLECTION_VERSION.tar.gz -p ./tmp/
