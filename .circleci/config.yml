@@ -248,7 +248,7 @@ jobs:
             git checkout main
             git tag -a $COLLECTION_VERSION -m "Ansible NDFC Collection Version $COLLECTION_VERSION"
             git push origin --tags
-            gh release create v1.2.3 -F CHANGELOG.md
+            gh release create "NDFC Collection Version $COLLECTION_VERSION" -F /tmp/taginfo.txt
             ansible-galaxy collection build
             mkdir ./tmp/
             ansible-galaxy collection install cisco-dcnm-$COLLECTION_VERSION.tar.gz -p ./tmp/
