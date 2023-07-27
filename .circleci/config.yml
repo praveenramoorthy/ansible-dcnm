@@ -210,14 +210,23 @@ jobs:
             git add galaxy.yml
             git status
             echo "======="
-            git commit -m "Released new version: $COLLECTION_VERSION"
+            git commit -m "Released new version: $COLLECTION_VERSION [skip ci]"
             git status
             git push origin develop
             echo "Pushing $COLLECTION_VERSION"
             git checkout -b $COLLECTION_VERSION
             git push origin $COLLECTION_VERSION
             gh pr create --base main --head $COLLECTION_VERSION --title "Release $COLLECTION_VERSION" --body "Release $COLLECTION_VERSION"
-
+  
+  finish-merge:
+    working_directory: ~/release
+    machine: true
+    resource_class: cisco/ansible-dcnm
+    steps:
+      - run:
+          name: Approve
+          command: echo "Done"
+                
   tag-release:
 
     working_directory: ~/release
@@ -228,7 +237,7 @@ jobs:
 
       - add_ssh_keys:
           fingerprints:
-            - "f9:58:2a:0b:6f:41:52:b6:05:de:3c:de:bd:a7:bd:b3"
+            - "30:a4:04:2a:24:5d:53:a3:54:b0:d6:a1:9e:97:bf:9a"
 
       - run:
           name: Create Tag and Release on gh and then publish to ansible-galaxy
@@ -502,7 +511,12 @@ workflows:
           filters:
             branches:
               only: develop
-      - tag-release:
+              
+      - finish-merge:
           type: approval
           requires: 
             - update-files
+
+      - tag-release:
+          requires: 
+            - finish-merge
