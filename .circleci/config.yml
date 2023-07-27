@@ -288,7 +288,8 @@ workflows:
           # 3-column space-separated table for mapping; `path-to-test parameter-to-set value-for-parameter` for each row
           mapping: |
             .* run-setup false
-            .* run-any true
+            plugins/.* run-any true
+            tests/integration/targets/.* run-any true
             plugins/httpapi/.* run-all true
             plugins/module_utils/.* run-all true
             plugins/action/dcnm_interface.py run-interface true
