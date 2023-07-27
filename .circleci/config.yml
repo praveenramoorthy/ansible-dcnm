@@ -308,8 +308,6 @@ workflows:
             plugins/modules/dcnm_template.py run-template true
             plugins/modules/dcnm_vrf.py run-vrf true
 
-            releaseinfo.yaml run-prep-release true
-
             tests/integration/targets/dcnm_inventory/.* run-inventory true
             tests/integration/targets/dcnm_interface/.* run-interface true
             tests/integration/targets/dcnm_links/.* run-links true
