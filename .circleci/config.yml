@@ -64,7 +64,7 @@ jobs:
 
     working_directory: ~/repo 
     machine: true
-    resource_class: cisco/ansible-dcnm
+    resource_class: praveenramoorthy/ansible-dcnm
 
     steps:
       - checkout
@@ -119,7 +119,7 @@ jobs:
 
     working_directory: ~/repo
     machine: true
-    resource_class: cisco/ansible-dcnm
+    resource_class: praveenramoorthy/ansible-dcnm
 
     steps:
       - checkout
@@ -140,7 +140,7 @@ jobs:
 
     working_directory: ~/repo
     machine: true
-    resource_class: cisco/ansible-dcnm
+    resource_class: praveenramoorthy/ansible-dcnm
 
     steps:
       - checkout
@@ -193,7 +193,7 @@ jobs:
 
     working_directory: ~/repo
     machine: true
-    resource_class: cisco/ansible-dcnm
+    resource_class: praveenramoorthy/ansible-dcnm
     steps:
       - checkout
       - run:
@@ -221,7 +221,7 @@ jobs:
   finish-merge:
     working_directory: ~/release
     machine: true
-    resource_class: cisco/ansible-dcnm
+    resource_class: praveenramoorthy/ansible-dcnm
     steps:
       - run:
           name: Approve
@@ -231,7 +231,7 @@ jobs:
 
     working_directory: ~/release
     machine: true
-    resource_class: cisco/ansible-dcnm
+    resource_class: praveenramoorthy/ansible-dcnm
     steps:
       - checkout
 
