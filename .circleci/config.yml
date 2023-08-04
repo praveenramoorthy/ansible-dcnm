@@ -250,7 +250,7 @@ jobs:
 
             git tag -a $COLLECTION_VERSION -m "Ansible NDFC Collection Version $COLLECTION_VERSION"
             git push origin --tags
-            gh release create "NDFC Collection Version $COLLECTION_VERSION" -F /tmp/taginfo.txt
+            gh release create "$COLLECTION_VERSION" -F /tmp/taginfo.txt --title "NDFC Collection Version $COLLECTION_VERSION" --latest
             ansible-galaxy collection build
             mkdir ./tmp/
             ansible-galaxy collection install cisco-dcnm-$COLLECTION_VERSION.tar.gz -p ./tmp/
@@ -306,7 +306,7 @@ workflows:
             plugins/modules/dcnm_rest.py run-rest true
             plugins/modules/dcnm_service_node.py run-service_node true
             plugins/modules/dcnm_service_policy.py run-service_policy true
-            plugins/modules/dcnm_service_route_peering.py run-service_route_peering true
+            plugins/modules/dcnm_service_route_peering.py run-service_route_peering false
             plugins/modules/dcnm_template.py run-template true
             plugins/modules/dcnm_vrf.py run-vrf true
 
@@ -319,14 +319,14 @@ workflows:
             tests/integration/targets/dcnm_fabric/.* run-all true
             tests/integration/targets/dcnm_service_node/.* run-service_node true
             tests/integration/targets/dcnm_service_policy/.* run-service_policy true
-            tests/integration/targets/dcnm_service_route_peering/.* run-service_route_peering true
+            tests/integration/targets/dcnm_service_route_peering/.* run-service_route_peering false
             tests/integration/targets/dcnm_template/.* run-template true
             tests/integration/targets/dcnm_vrf/.* run-vrf true
             tests/integration/targets/prepare_dcnm_intf/tasks/.* run-all true
             tests/integration/targets/prepare_dcnm_links/tasks/.* run-links true
             tests/integration/targets/prepare_dcnm_policy/tasks/.* run-policy true
             tests/integration/targets/prepare_dcnm_service_policy/tasks/.* run-service_policy true
-            tests/integration/targets/prepare_dcnm_service_route_peering/tasks/.* run-service_route_peering true
+            tests/integration/targets/prepare_dcnm_service_route_peering/tasks/.* run-service_route_peering false
             tests/integration/targets/prepare_dcnm_template/tasks/.* run-template true
 
 

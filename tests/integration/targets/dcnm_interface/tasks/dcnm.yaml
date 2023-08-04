@@ -5,37 +5,42 @@
     patterns: "{{ testcase }}.yaml"
   connection: local
   register: dcnm_cases
+  tags: sanity
 
 - set_fact:
     test_cases:
       files: "{{ dcnm_cases.files }}"
+  tags: sanity    
 
 - name: set test_items
   set_fact: test_items="{{ test_cases.files | map(attribute='path') | list }}"
+  tags: sanity 
 
 - name: run test cases (connection=httpapi)
   include: "{{ test_case_to_run }}"
   with_items: "{{ test_items }}"
   loop_control:
     loop_var: test_case_to_run
+  tags: sanity   
 
-- name: Final Cleanup - delete my_lacp my_interface_vlan and my_hsrp policies that we created during init
+- name: Final Cleanup - delete feature_interface_vlan and hsrp policies that we created during init
   cisco.dcnm.dcnm_policy:
     fabric: "{{ ansible_it_fabric }}"
     state: deleted                     # only choose form [merged, deleted, query]
     config:
       - name: my_interface_vlan
       - name: my_hsrp
-      - name: my_lacp
       - switch:
           - ip: "{{ ansible_switch1 }}"
           - ip: "{{ ansible_switch2 }}"
   register: result
+  tags: sanity 
 
 - assert:
     that:
       - 'item["RETURN_CODE"] == 200'
   loop: '{{ result.response }}'
+  tags: sanity 
 
 - name: Final Cleanup - delete all templates created during init
   cisco.dcnm.dcnm_template:
@@ -43,10 +48,11 @@
     config:
       - name: my_interface_vlan
       - name: my_hsrp
-      - name: my_lacp
   register: result
+  tags: sanity 
 
 - assert:
     that:
       - 'item["RETURN_CODE"] == 200'
   loop: '{{ result.response }}'
+  tags: sanity 

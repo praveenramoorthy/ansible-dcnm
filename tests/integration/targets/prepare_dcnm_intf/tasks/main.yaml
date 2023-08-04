@@ -35,6 +35,7 @@
 
               ##
       register: result
+      tags: sanity
 
 # Create the policy to deploy lacp, interface-vlan and hsrp features on the switches
     - name: Create lacp, interface-vlan and hsrp policies
@@ -57,3 +58,4 @@
         deploy: true
         state: merged
       register: result
+      tags: sanity
