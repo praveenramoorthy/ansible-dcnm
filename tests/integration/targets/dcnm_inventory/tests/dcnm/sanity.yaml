@@ -181,4 +181,3 @@
       preserve_config: False # boolean, default is  true
   register: result
   tags: sanity
-
