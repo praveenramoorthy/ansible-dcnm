@@ -1,7 +1,7 @@
 ---
 namespace: cisco
 name: dcnm
-version: 9.40.40
+version: 9.50.50
 readme: README.md
 authors:
   - Shrishail Kariyappanavar <nkshrishail>
