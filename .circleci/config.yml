@@ -253,7 +253,7 @@ jobs:
             ansible-galaxy collection build
             mkdir ./tmp/
             ansible-galaxy collection install cisco-dcnm-$COLLECTION_VERSION.tar.gz -p ./tmp/
-            # ansible-galaxy collection publish ./cisco-dcnm-$COLLECTION_VERSION.tar.gz --api-key=b9a5ea2999f8a115fcb8f033af3f812837420691
+            # ansible-galaxy collection publish ./cisco-dcnm-$COLLECTION_VERSION.tar.gz --api-key=
             rm -rf tmp/
             rm -f cisco-dcnm-*
            
