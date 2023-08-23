@@ -318,4 +318,4 @@
   cisco.dcnm.dcnm_network:
     fabric: "{{ test_fabric }}"
     state: deleted
-  #tags: sanity
+  tags: sanity
