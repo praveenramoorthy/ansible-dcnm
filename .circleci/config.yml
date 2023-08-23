@@ -217,6 +217,7 @@ jobs:
             git checkout -b $COLLECTION_VERSION
             git push origin $COLLECTION_VERSION
             gh pr create --base main --head $COLLECTION_VERSION --title "Release $COLLECTION_VERSION" --body "Release $COLLECTION_VERSION"
+            cat galaxy.yml
   
   finish-merge:
     working_directory: ~/release
@@ -244,7 +245,7 @@ jobs:
           command: |
           
             source /tmp/collectversion.txt
-
+            cat galaxy.yml
             git checkout main
             git pull
 
@@ -253,10 +254,10 @@ jobs:
             gh release create "$COLLECTION_VERSION" -F /tmp/taginfo.txt --title "NDFC Collection Version $COLLECTION_VERSION" --latest
             ansible-galaxy collection build
             mkdir ./tmp/
-            ansible-galaxy collection install cisco-dcnm-$COLLECTION_VERSION.tar.gz -p ./tmp/
-            # ansible-galaxy collection publish ./cisco-dcnm-$COLLECTION_VERSION.tar.gz --api-key=
+            ansible-galaxy collection install mikewiebe-test_ci_publish-$COLLECTION_VERSION.tar.gz -p ./tmp/
+            # ansible-galaxy collection publish ./mikewiebe-test_ci_publish-$COLLECTION_VERSION.tar.gz --api-key=
             rm -rf tmp/
-            rm -f cisco-dcnm-*
+            rm -f mikewiebe-test_ci_publish-$COLLECTION_VERSION.tar.gz
            
 
 

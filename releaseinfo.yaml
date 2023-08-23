@@ -1,9 +1,9 @@
-version: "9.50.90"
-release_title: "NDFC collection Version 9.50.90"
+version: "2.1.28"
+release_title: "NDFC collection Version 2.1.28"
 release_desc: "Ansible NDFC Collection"
 changes: 
   added:
-    - "Support to configure 90 multiple interfaces for vrf_lite on a vrf"
+    - "Support to configure 28 multiple interfaces for vrf_lite on a vrf"
     - "Added support for more switch roles in inventory module."
     - "Change 3"
   
