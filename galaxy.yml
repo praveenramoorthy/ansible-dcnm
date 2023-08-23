@@ -1,7 +1,7 @@
 ---
 namespace: mikewiebe
 name: test_ci_publish
-version: 9.50.90
+version: 2.1.28
 readme: README.md
 authors:
   - Shrishail Kariyappanavar <nkshrishail>
