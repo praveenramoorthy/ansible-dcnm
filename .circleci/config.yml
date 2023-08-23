@@ -251,9 +251,10 @@ jobs:
             git push origin --tags
             gh release create "$COLLECTION_VERSION" -F /tmp/taginfo.txt --title "NDFC Collection Version $COLLECTION_VERSION" --latest
             ansible-galaxy collection build
+            mv cisco-dcnm-$COLLECTION_VERSION.tar.gz $COLLECTION_VERSION.tar.gz
             mkdir ./tmp/
-            ansible-galaxy collection install cisco-dcnm-$COLLECTION_VERSION.tar.gz -p ./tmp/
-            # ansible-galaxy collection publish ./cisco-dcnm-$COLLECTION_VERSION.tar.gz --api-key=
+            ansible-galaxy collection install $COLLECTION_VERSION.tar.gz -p ./tmp/
+            # ansible-galaxy collection publish ./$COLLECTION_VERSION.tar.gz --api-key=
             rm -rf tmp/
             rm -f cisco-dcnm-*
            
