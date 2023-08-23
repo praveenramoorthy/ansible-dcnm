@@ -256,7 +256,7 @@ jobs:
             ansible-galaxy collection install mikewiebe-test_ci_publish-$COLLECTION_VERSION.tar.gz -p ./tmp/
             # ansible-galaxy collection publish ./mikewiebe-test_ci_publish-$COLLECTION_VERSION.tar.gz --api-key=
             rm -rf tmp/
-            rm -f $COLLECTION_VERSION.tar.gz
+            rm -f mikewiebe-test_ci_publish-$COLLECTION_VERSION.tar.gz
            
 
 
