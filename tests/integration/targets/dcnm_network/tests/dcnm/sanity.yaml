@@ -92,7 +92,7 @@
     - 'result.diff[1].net_name == "ansible-net12"'
     - 'result.diff[1].net_id == 7002'
     - 'result.diff[1].vrf_name == "Tenant-2"'
-  tags: sanity
+  #tags: sanity
 
 ##############################################
 ##                OVERRIDDEN                ##
