@@ -2,6 +2,19 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
  
+## [2.1.33] - 2023-11-28
+
+### Added
+* Support to configure 31 multiple interfaces for vrf_lite on a vrf
+* Added support for more switch roles in inventory module.
+* Change 3
+ 
+### Fixed
+* https://github.com/CiscoDevNet/ansible-dcnm/issues/204
+* https://github.com/CiscoDevNet/ansible-dcnm/issues/205
+* https://github.com/CiscoDevNet/ansible-dcnm/issues/206
+* Removed the restriction on netcommon version supported by DCNM collection. The restriction was introduced as fix for CiscoDevNet#209. Netcommon versions >=2.6.1 is supported.
+ 
 ## [2.1.32] - 2023-09-12
 
 ### Added
@@ -453,6 +466,7 @@ The Ansible Cisco Data Center Network Manager (DCNM) collection includes modules
 * cisco.dcnm.dcnm_network	 - Add and remove Networks from a DCNM managed VXLAN fabric.
 * cisco.dcnm.dcnm_interface - DCNM Ansible Module for managing interfaces.
 
+[2.1.33]: https://github.com/CiscoDevNet/ansible-dcnm/compare/2.1.32...2.1.33
 [2.1.32]: https://github.com/CiscoDevNet/ansible-dcnm/compare/2.1.31...2.1.32
 [2.1.31]: https://github.com/CiscoDevNet/ansible-dcnm/compare/2.1.30...2.1.31
 [2.1.30]: https://github.com/CiscoDevNet/ansible-dcnm/compare/2.1.29...2.1.30
